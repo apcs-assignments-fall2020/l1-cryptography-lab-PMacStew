@@ -2,8 +2,16 @@ import java.util.Scanner;
 
 public class Vigenere {
     public static String encryptVigenere(String message, String key) {
-        return message;
-        // REPLACE THIS WITH YOUR CODE
+        String result = "";
+        int change = 0;
+        message = message.toUpperCase();
+        for (int i = 0; i < message.length(); i++) {
+            change = (i + key.length()) % key.length();
+            if (message.charAt(i) >= 65 && message.charAt(i) <= 90) {
+                result += (char) (message.charAt(i) + (key.charAt(change) - 65));
+            }
+        }
+        return result;
     }
 
     public static String decryptVigenere(String message, String key) {

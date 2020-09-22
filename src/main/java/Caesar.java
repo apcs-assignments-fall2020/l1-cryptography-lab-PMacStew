@@ -110,13 +110,13 @@ public class Caesar {
             String keyDecision = scan.nextLine();
             if (keyDecision.equals("no")) {
                 System.out.println("Here is your decrypted message: ");
-                System.out.println(encryptCaesar(message)); }
+                System.out.println(decryptCaesar(message)); }
             else if (keyDecision.equals("yes")) {
                 System.out.println("What will be your key?");
                 int key = scan.nextInt();
                 scan.nextLine();
                 System.out.println("Here is your decrypted message: ");
-                System.out.println(encryptCaesarKey(message, key));
+                System.out.println(decryptCaesarKey(message, key));
             }
             else 
                 System.out.println("Unknown command; please type \"yes\" or \"no\"");
