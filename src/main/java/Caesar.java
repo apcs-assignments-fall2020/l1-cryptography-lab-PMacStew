@@ -4,16 +4,18 @@ public class Caesar {
     public static String encryptCaesar(String message) {
         String result = "";
         for (int i = 0; i < message.length(); i++) {
-            if (message.charAt(i) >= 65 && message.charAt(i) <= 90)
+            if (message.charAt(i) >= 65 && message.charAt(i) <= 90) {
                 if (message.charAt(i) + 3 > 90 )
                     result += (char) (message.charAt(i) + 3 - 26);
                 else
                     result += (char) (message.charAt(i) + 3);
-            else if (message.charAt(i) >= 97 && message.charAt(i) <= 122)
+            }
+            else if (message.charAt(i) >= 97 && message.charAt(i) <= 122) {
                 if (message.charAt(i) + 3 > 122 )
                     result += (char) (message.charAt(i) + 3 - 26);
                 else
                     result += (char) (message.charAt(i) + 3);
+            }
             else
                 result += message.charAt(i);
         }
@@ -24,16 +26,18 @@ public class Caesar {
     public static String decryptCaesar(String message) {
         String result = "";
         for (int i = 0; i < message.length(); i++) {
-            if (message.charAt(i) >= 65 && message.charAt(i) <= 90)
+            if (message.charAt(i) >= 65 && message.charAt(i) <= 90) {
                 if (message.charAt(i) - 3 < 65 )
                     result += (char) (message.charAt(i) - 3 + 26);
                 else
                     result += (char) (message.charAt(i) - 3);
-             else if (message.charAt(i) >= 97 && message.charAt(i) <= 122)
+            }
+             else if (message.charAt(i) >= 97 && message.charAt(i) <= 122) {
                 if (message.charAt(i) - 3 < 97 )
                     result += (char) (message.charAt(i) - 3 + 26);
                 else
                     result += (char) (message.charAt(i) - 3);
+            }
             else
                 result += message.charAt(i);
         }
@@ -43,16 +47,18 @@ public class Caesar {
     public static String encryptCaesarKey(String message, int key) {
         String result = "";
         for (int i = 0; i < message.length(); i++) {
-            if (message.charAt(i) >= 65 && message.charAt(i) <= 90)
+            if (message.charAt(i) >= 65 && message.charAt(i) <= 90) {
                 if (message.charAt(i) + (key % 26) > 90 )
                     result += (char) (message.charAt(i) + (key % 26) - 26);
                 else
                     result += (char) (message.charAt(i) + (key % 26));
-            else if (message.charAt(i) >= 97 && message.charAt(i) <= 122)
+            }
+            else if (message.charAt(i) >= 97 && message.charAt(i) <= 122) {
                 if (message.charAt(i) + (key % 26) > 122 )
                     result += (char) (message.charAt(i) + (key % 26) - 26);
                 else
                     result += (char) (message.charAt(i) + (key % 26));
+            }
             else
                 result += message.charAt(i);
         }
@@ -62,16 +68,18 @@ public class Caesar {
     public static String decryptCaesarKey(String message, int key) {
         String result = "";
         for (int i = 0; i < message.length(); i++) {
-            if (message.charAt(i) >= 65 && message.charAt(i) <= 90)
+            if (message.charAt(i) >= 65 && message.charAt(i) <= 90) {
                 if (message.charAt(i) - (key % 26) < 65 )
                     result += (char) (message.charAt(i) - (key % 26) + 26);
                 else
                     result += (char) (message.charAt(i) - (key % 26));
-             else if (message.charAt(i) >= 97 && message.charAt(i) <= 122)
+            }
+             else if (message.charAt(i) >= 97 && message.charAt(i) <= 122) {
                 if (message.charAt(i) - (key % 26) < 97 )
                     result += (char) (message.charAt(i) - (key % 26) + 26);
                 else
                     result += (char) (message.charAt(i) - (key % 26));
+            }
             else
                 result += message.charAt(i);
         }

@@ -4,12 +4,27 @@ public class Vigenere {
     public static String encryptVigenere(String message, String key) {
         String result = "";
         int change = 0;
-        message = message.toUpperCase();
+        int realKey = 0;
         for (int i = 0; i < message.length(); i++) {
             change = (i + key.length()) % key.length();
+            if (key.charAt(change) >= 65 && key.charAt(change) <= 90)
+                realKey = key.charAt(change) - 65;
+            else
+                realKey = key.charAt(change) - 97;
             if (message.charAt(i) >= 65 && message.charAt(i) <= 90) {
-                result += (char) (message.charAt(i) + (key.charAt(change) - 65));
+                if (message.charAt(i) + realKey > 90)
+                    result += (char) (message.charAt(i) + realKey - 26);
+                else
+                    result += (char) (message.charAt(i) + realKey);
             }
+            else if (message.charAt(i) >= 97 && message.charAt(i) <= 122) {
+                if (message.charAt(i) + realKey > 122)
+                    result += (char) (message.charAt(i) + realKey - 26);
+                else
+                    result += (char) (message.charAt(i) + realKey);
+            }
+            else 
+                result += (char) (message.charAt(i));
         }
         return result;
     }
