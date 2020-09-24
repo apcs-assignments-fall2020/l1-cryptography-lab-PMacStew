@@ -5,8 +5,9 @@ public class Vigenere {
         String result = "";
         int change = 0;
         int realKey = 0;
+        int place = 0;
         for (int i = 0; i < message.length(); i++) {
-            change = (i + key.length()) % key.length();
+            change = (place + key.length()) % key.length();
             if (key.charAt(change) >= 65 && key.charAt(change) <= 90)
                 realKey = key.charAt(change) - 65;
             else
@@ -16,12 +17,14 @@ public class Vigenere {
                     result += (char) (message.charAt(i) + realKey - 26);
                 else
                     result += (char) (message.charAt(i) + realKey);
+                place++;
             }
             else if (message.charAt(i) >= 97 && message.charAt(i) <= 122) {
                 if (message.charAt(i) + realKey > 122)
                     result += (char) (message.charAt(i) + realKey - 26);
                 else
                     result += (char) (message.charAt(i) + realKey);
+                place++;
             }
             else 
                 result += (char) (message.charAt(i));
@@ -30,8 +33,34 @@ public class Vigenere {
     }
 
     public static String decryptVigenere(String message, String key) {
-        return message;
-        // REPLACE THIS WITH YOUR CODE
+        String result = "";
+        int change = 0;
+        int realKey = 0;
+        int place = 0;
+        for (int i = 0; i < message.length(); i++) {
+            change = (place + key.length()) % key.length();
+            if (key.charAt(change) >= 65 && key.charAt(change) <= 90)
+                realKey = key.charAt(change) - 65;
+            else
+                realKey = key.charAt(change) - 97;
+            if (message.charAt(i) >= 65 && message.charAt(i) <= 90) {
+                if (message.charAt(i) - realKey < 65)
+                    result += (char) (message.charAt(i) - realKey + 26);
+                else
+                    result += (char) (message.charAt(i) - realKey);
+                place++;
+            }
+            else if (message.charAt(i) >= 97 && message.charAt(i) <= 122) {
+                if (message.charAt(i) - realKey < 97)
+                    result += (char) (message.charAt(i) - realKey + 26);
+                else
+                    result += (char) (message.charAt(i) - realKey);
+                place++;
+            }
+            else 
+                result += (char) (message.charAt(i));
+        }
+        return result;
     }
 
 
